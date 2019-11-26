@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script type="module" src="./dist/esm/index.js"></script> -->
+    <title>Markdown Converter</title>
+</head>
+<body>
+    <div>
+        <textarea id="input" rows="50" cols="70"></textarea>
+        <textarea id="output" rows="50" cols="70"></textarea>
+        <button id="convert">Convert</button>
+    </div>
+</body>
+
+    <script type="module">
+        import markdownParser from "./dist/esm/index.js";
+        const handleConversion = () => {
+            markdownParser.then( converter => {
+                const html = converter.makeHtml(document.querySelector("#input").value);
+                document.querySelector("#output").value = html;
+            })
+        }
+
+        document.querySelector("#convert").addEventListener("click", handleConversion);
+    </script>
+
+</html>

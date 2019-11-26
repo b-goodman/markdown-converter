@@ -1,7 +1,8 @@
-import * as showdown from "showdown";
 import options from "./options";
 import extensions from "./extensions/index"
 
-const markdownParser = new showdown.Converter({extensions: [...extensions], ...options});
+const markdownParser = import("showdown").then( (showdown) => {
+    return new showdown.default.Converter({extensions: [...extensions], ...options});
+})
 
 export default markdownParser;
