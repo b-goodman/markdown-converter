@@ -1,4 +1,4 @@
-import showdown from "showdown";
+import * as showdown from "showdown";
 import options from "./options";
 import extensions from "./extensions/index"
 
