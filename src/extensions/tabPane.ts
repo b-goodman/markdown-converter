@@ -9,6 +9,11 @@ const tabPane = (): showdown.ShowdownExtension | showdown.ShowdownExtension[] =>
         },
         {
             type: 'lang',
+            regex: /@tab\s+position=(\w+)([^]+)@\/tab/,
+            replace: '<tab-pane tab-position="$1">$2</tab-pane>',
+        },
+        {
+            type: 'lang',
             regex: /@tab([^]+)@\/tab/,
             replace: '<tab-pane tab-position="top">$1</tab-pane>',
         },

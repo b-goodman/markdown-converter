@@ -52,6 +52,11 @@ var syntaxHighlight = function () {
             regex: /```([^]+?)```/gi,
             replace: '<syntax-highlight class="language-text"><pre><code class="language-text">$1</code></pre></syntax-highlight>'
         },
+        {
+            type: 'output',
+            regex: /<p>(<syntax-highlight[^]+<\/syntax-highlight>)<\/p>/gi,
+            replace: '$1'
+        },
     ];
 };
 
@@ -61,6 +66,11 @@ var tabPane = function () {
             type: 'lang',
             regex: /\[([^\]]+)\]\s?->\s?\[([^\]]+)\]/gi,
             replace: '<div data-tab="$1">$2</div>'
+        },
+        {
+            type: 'lang',
+            regex: /@tab\s+position=(\w+)([^]+)@\/tab/,
+            replace: '<tab-pane tab-position="$1">$2</tab-pane>',
         },
         {
             type: 'lang',

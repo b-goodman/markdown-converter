@@ -12,6 +12,11 @@ const syntaxHighlight = (): showdown.ShowdownExtension | showdown.ShowdownExtens
             regex: /```([^]+?)```/gi,
             replace: '<syntax-highlight class="language-text"><pre><code class="language-text">$1</code></pre></syntax-highlight>'
         },
+        {
+            type: 'output',
+            regex: /<p>(<syntax-highlight[^]+<\/syntax-highlight>)<\/p>/gi,
+            replace: '$1'
+        },
     ]
 };
 
